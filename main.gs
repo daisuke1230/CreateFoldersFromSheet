@@ -49,14 +49,13 @@ function createFoldersFromSheet() {
   sheet.getRange(CONFIG.LINK_CELL)
        .setFormula(`=HYPERLINK("${rootFolder.getUrl()}", "${rootFolder.getName()}")`);
 
-  SpreadsheetApp.getUi().alert('資料夾已建立完成！');
-
  // ➊ 建 Trello 卡
   createTrelloCard_(projectName, rootFolder.getUrl());
 
   // 既有：回填 Drive 連結
   sheet.getRange(CONFIG.LINK_CELL)
        .setFormula(`=HYPERLINK("${rootFolder.getUrl()}", "${rootFolder.getName()}")`);
+
   SpreadsheetApp.getUi().alert('資料夾已建立完成並同步開卡！');
 
 }
