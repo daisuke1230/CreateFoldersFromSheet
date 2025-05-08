@@ -138,12 +138,21 @@ function createTrelloCard_(projectName, folderUrl) {
     return;
   }
 
+// ── 描述區：前三行純文字，最後一行附連結 ──
+  const desc = [
+    '進場時間：',
+    '撤場時間：',
+    '活動時間：',
+    '',
+    `專案資料夾：\n${folderUrl}`
+  ].join('\n');
+
   const payload = {
-    name: projectName,
-    desc: `Google Drive 資料夾：\n${folderUrl}`,
     idList: listId,
-    key,
-    token
+    name:   projectName,
+    desc:   desc,
+    key:    key,
+    token:  token
   };
 
   const options = {
